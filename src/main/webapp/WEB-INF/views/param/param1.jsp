@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<body>
+<body>	
 	<h1>Param Test Page</h1>
 	
 	<form action="./param1" method="post">
@@ -19,28 +19,26 @@
 		</p>
 		
 		<p>
-			p3<input type="color" name="p3">
+			p3 <input type="color" name="p3">
 		</p>
 		
 		<p>
 			p4 <select name="p4">
-					<option value="k">kt</option>
-					<option value="s">skt</option>
-					<option value="l">lgt</option>
+					<option value="k">KT</option>
+					<option value="s">SKT</option>
+					<option value="l">LGT</option>
 				</select>
 		</p>
 		
 		<p>
-			kt <input type ="radio" name="p5" value="kt">
-			lg <input type ="radio" name="p5" value="lg">
-			sk <input type ="radio" name="p5" value="sk">
+			kt <input type="radio" name="p5" value="kt">
+			lg <input type="radio" name="p5" value="lg">
+			sk <input type="radio" name="p5" value="sk">
 		</p>
-		
 		<p>
-			kt <input type ="checkbox" name="p6" value="kt">
-			lg <input type ="checkbox" name="p6" value="lg">
-			sk <input type ="checkbox" name="p6" value="sk">
-		
+			kt <input type="checkbox" name="p6" value="kt">
+			lg <input type="checkbox" name="p6" value="lg">
+			sk <input type="checkbox" name="p6" value="sk">
 		</p>
 		
 		<button>SUBMIT</button>
