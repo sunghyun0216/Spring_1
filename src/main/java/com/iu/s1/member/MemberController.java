@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -35,12 +36,12 @@ public class MemberController {
 		System.out.println(result);
 	}
 	
-	
-	
+	//똑같은 이름으로 메서드를 만들수 없어서 1,2로 나눔 // 상속받은 매서드를 재정의 : 오버라이딩, 같은 이름을 메서드 여러개 : 오버로딩,
+	//오버로딩 적용!!
 	
 	//memberLogin print   //  /member/memberLogin
 	@RequestMapping(value = "/member/memberLogin")
-	public String memberLogin() {
+	public String memberLogin() { 
 		//String name = request.getParameter("name");
 		//int age = Integer.parseInt(request.getParameter("age"));
 		//System.out.println(name);
@@ -52,7 +53,7 @@ public class MemberController {
 	
 	//memberLogin2 print
 	@RequestMapping(value = "/member/memberLogin", method = RequestMethod.POST)
-	public void memberLogin2(HttpServletRequest request) throws Exception {
+	public String memberLogin2(HttpServletRequest request) throws Exception {
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
 		
@@ -62,7 +63,8 @@ public class MemberController {
 		memberDTO = memberService.memberLogin(memberDTO);
 		
 		System.out.println(memberDTO);
-		
+		request.setAttribute("dto", memberDTO);
+		return "member/memberPage";
 	}
 
 }
