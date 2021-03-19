@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class MemberController {
@@ -52,19 +53,16 @@ public class MemberController {
 	}
 	
 	//memberLogin2 print
-	@RequestMapping(value = "/member/memberLogin", method = RequestMethod.POST)
-	public String memberLogin2(HttpServletRequest request) throws Exception {
-		String id = request.getParameter("id");
-		String pw = request.getParameter("pw");
+		@RequestMapping(value = "/member/memberLogin", method = RequestMethod.POST)
+		public ModelAndView memberLogin2(MemberDTO memberDTO, ModelAndView modelAndView) throws Exception {
+			ModelAndView modelAndView2 = new ModelAndView();
 		
-		MemberDTO memberDTO = new MemberDTO();
-		memberDTO.setId(id);
-		memberDTO.setPw(pw);
 		memberDTO = memberService.memberLogin(memberDTO);
 		
-		System.out.println(memberDTO);
-		request.setAttribute("dto", memberDTO);
-		return "member/memberPage";
+		modelAndView.addObject("dto", memberDTO);
+		modelAndView.setViewName("member/memberPage");
+		
+		return modelAndView;
 	}
 
 }
