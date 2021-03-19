@@ -19,8 +19,8 @@ public class MemberController {
 	
 	// memberJoin  //   /member/memberJoin GET
 	@RequestMapping(value = "/member/memberJoin")
-	public String memberJoin() {
-		return "member/memberJoin";
+	public void memberJoin() {
+//		return "member/memberJoin";
 	}
 	
 	// memberJoin2 //	/member/memberJoin POST
